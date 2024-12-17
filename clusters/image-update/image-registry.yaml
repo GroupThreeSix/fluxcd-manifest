@@ -1,0 +1,26 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageRepository
+metadata:
+  name: product-service
+  namespace: flux-system
+spec:
+  image: groupthreesix.azurecr.io/product-service
+  interval: 1m
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageRepository
+metadata:
+  name: order-service
+  namespace: flux-system
+spec:
+  image: groupthreesix.azurecr.io/order-service
+  interval: 1m0s
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageRepository
+metadata:
+  name: inventory-service
+  namespace: flux-system
+spec:
+  image: groupthreesix.azurecr.io/inventory-service
+  interval: 1m0s

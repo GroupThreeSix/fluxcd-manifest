@@ -1,7 +1,7 @@
 apiVersion: image.toolkit.fluxcd.io/v1beta1
 kind: ImageUpdateAutomation
 metadata:
-  name: production-images
+  name: staging-images
   namespace: flux-system
 spec:
   interval: 1m0s
@@ -17,13 +17,13 @@ spec:
         email: fluxcdbot@users.noreply.github.com
         name: fluxcdbot
       messageTemplate: |
-        [production] update image tags
+        [staging] update image tags
         
-        Automated production image update:
+        Automated staging image update:
         - Image: {{ .Updated.Name }}
         - Tag: {{ .Updated.OldTag }} -> {{ .Updated.NewTag }}
     push:
       branch: master
   update:
-    path: ./apps/production
+    path: ./apps/staging
     strategy: Setters
