@@ -3,14 +3,12 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: cert-manager
-  labels:
-    toolkit.fluxcd.io/tenant: sre-team
 ---
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
   name: cert-manager
-  namespace: cert-manager
+  namespace: cluster-config
 spec:
   interval: 24h
   url: https://charts.jetstack.io
@@ -19,8 +17,10 @@ apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: cert-manager
-  namespace: cert-manager
+  namespace: cluster-config
 spec:
+  releaseName: cert-manager
+  targetNamespace: cert-manager
   interval: 30m
   chart:
     spec:
@@ -29,7 +29,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: cert-manager
-        namespace: cert-manager
+        namespace: cluster-config
       interval: 12h
   values:
     installCRDs: true

@@ -8,7 +8,7 @@ apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
   name: istio
-  namespace: istio-system
+  namespace: cluster-config
 spec:
   interval: 24h
   url: https://istio-release.storage.googleapis.com/charts
@@ -17,8 +17,10 @@ apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: istio-base
-  namespace: istio-system
+  namespace: cluster-config
 spec:
+  releaseName: istio-base
+  targetNamespace: istio-system
   interval: 30m
   chart:
     spec:
@@ -27,15 +29,17 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: istio
-        namespace: istio-system
+        namespace: cluster-config
       interval: 12h
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: istiod
-  namespace: istio-system
+  namespace: cluster-config
 spec:
+  releaseName: istiod
+  targetNamespace: istio-system
   interval: 30m
   dependsOn:
     - name: istio-base
@@ -46,15 +50,17 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: istio
-        namespace: istio-system
+        namespace: cluster-config
       interval: 12h
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: istio-ingress
-  namespace: istio-system
+  namespace: cluster-config
 spec:
+  releaseName: istio-ingress
+  targetNamespace: istio-system
   interval: 30m
   dependsOn:
     - name: istiod
@@ -65,5 +71,5 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: istio
-        namespace: istio-system
+        namespace: cluster-config
       interval: 12h
