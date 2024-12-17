@@ -6,6 +6,7 @@ metadata:
 spec:
   image: groupthreesix.azurecr.io/product-service
   interval: 1m
+  provider: azure
 ---
 apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImageRepository
@@ -15,6 +16,7 @@ metadata:
 spec:
   image: groupthreesix.azurecr.io/order-service
   interval: 1m0s
+  provider: azure
 ---
 apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImageRepository
@@ -24,3 +26,4 @@ metadata:
 spec:
   image: groupthreesix.azurecr.io/inventory-service
   interval: 1m0s
+  provider: azure
