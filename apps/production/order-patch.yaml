@@ -1,13 +1,13 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: not-important
+  name: order-service
 spec:
   replicas: 3
   template:
     spec:
       containers:
-      - name: not-important
+      - name: order-service
         resources:
           limits:
             memory: 1Gi
