@@ -1,11 +1,9 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: apps-production
-
 resources:
 - namespace.yaml
 - ../base
-
 # patches:
 # - path: product-patch.yaml
 #   target:
@@ -19,7 +17,6 @@ resources:
 #   target:
 #     kind: Deployment
 #     name: inventory-service
-
 images:
 - name: order-service
   newName: groupthreesix.azurecr.io/order-service # {"$imagepolicy": "flux-system:order-service-production:name"}
@@ -29,4 +26,4 @@ images:
   newTag: latest # {"$imagepolicy": "flux-system:product-service-production:tag"} 
 - name: inventory-service
   newName: groupthreesix.azurecr.io/inventory-service # {"$imagepolicy": "flux-system:inventory-service-production:name"}
-  newTag: latest # {"$imagepolicy": "flux-system:inventory-service-production:tag"}
+  newTag: v1.1.0 # {"$imagepolicy": "flux-system:inventory-service-production:tag"}
