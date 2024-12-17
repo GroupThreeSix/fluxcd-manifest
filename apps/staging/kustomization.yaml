@@ -6,11 +6,11 @@ resources:
 - ../base
 images:
 - name: order-service
-  newName: groupthreesix.azurecr.io/order-service:v1.1.0-alpha.12 # {"$imagepolicy": "flux-system:order-service-staging"}
-  newTag: groupthreesix.azurecr.io/order-service:v1.1.0-alpha.12 # {"$imagepolicy": "flux-system:order-service-staging"}
+  newName: groupthreesix.azurecr.io/order-service # {"$imagepolicy": "flux-system:order-service-staging:name"}
+  newTag: latest # {"$imagepolicy": "flux-system:order-service-staging:tag"}
 - name: product-service
-  newName: groupthreesix.azurecr.io/product-service:v1.1.0-alpha.12 # {"$imagepolicy": "flux-system:product-service-staging"}
-  newTag: groupthreesix.azurecr.io/product-service:v1.1.0-alpha.12 # {"$imagepolicy": "flux-system:product-service-staging"}
+  newName: groupthreesix.azurecr.io/product-service # {"$imagepolicy": "flux-system:product-service-staging:name"}
+  newTag: latest # {"$imagepolicy": "flux-system:product-service-staging:tag"}
 - name: inventory-service
-  newName: groupthreesix.azurecr.io/inventory-service:v1.1.0-alpha.12 # {"$imagepolicy": "flux-system:inventory-service-staging"}
-  newTag: groupthreesix.azurecr.io/inventory-service:v1.1.0-alpha.12 # {"$imagepolicy": "flux-system:inventory-service-staging"}
+  newName: groupthreesix.azurecr.io/inventory-service # {"$imagepolicy": "flux-system:inventory-service-staging:name"}
+  newTag: latest # {"$imagepolicy": "flux-system:inventory-service-staging:tag"}
