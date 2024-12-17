@@ -22,11 +22,11 @@ resources:
 
 images:
 - name: order-service
-  newName: groupthreesix.azurecr.io/order-service
-  newTag: latest
+  newName: groupthreesix.azurecr.io/order-service # {"$imagepolicy": "flux-system:order-service-production:name"}
+  newTag: latest # {"$imagepolicy": "flux-system:order-service-production:tag"}
 - name: product-service
-  newName: groupthreesix.azurecr.io/product-service
-  newTag: latest
+  newName: groupthreesix.azurecr.io/product-service # {"$imagepolicy": "flux-system:product-service-production:name"}
+  newTag: latest # {"$imagepolicy": "flux-system:product-service-production:tag"} 
 - name: inventory-service
-  newName: groupthreesix.azurecr.io/inventory-service
-  newTag: latest
+  newName: groupthreesix.azurecr.io/inventory-service # {"$imagepolicy": "flux-system:inventory-service-production:name"}
+  newTag: latest # {"$imagepolicy": "flux-system:inventory-service-production:tag"}
