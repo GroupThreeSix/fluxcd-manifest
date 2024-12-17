@@ -17,11 +17,25 @@ spec:
         email: fluxcdbot@users.noreply.github.com
         name: fluxcdbot
       messageTemplate: |
-        [staging] update image tags
+        chore: automated image update
+
+        Automation name: {{ .AutomationObject }}
+
+        Files:
+        {{ range $filename, $_ := .Updated.Files -}}
+        - {{ $filename }}
+        {{ end -}}
+
+        Objects:
+        {{ range $resource, $_ := .Updated.Objects -}}
+        - {{ $resource.Kind }} {{ $resource.Name }}
+        {{ end -}}
+
+        Images:
+        {{ range .Updated.Images -}}
+        - {{.}}
+        {{ end -}}
         
-        Automated staging image update:
-        - Image: {{ .Updated.Name }}
-        - Tag: {{ .Updated.OldTag }} -> {{ .Updated.NewTag }}
     push:
       branch: master
   update:
