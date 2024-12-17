@@ -1,0 +1,11 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImagePolicy
+metadata:
+  name: product-service-prod
+  namespace: flux-system
+spec:
+  imageRepositoryRef:
+    name: product-service
+  policy:
+    semver:
+      range: '1.0.x' # Only stable 1.0.x versions
