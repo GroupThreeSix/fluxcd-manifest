@@ -6,19 +6,19 @@ resources:
 - namespace.yaml
 - ../base
 
-patches:
-- path: product-patch.yaml
-  target:
-    kind: Deployment
-    name: product-service
-- path: order-patch.yaml
-  target:
-    kind: Deployment
-    name: order-service
-- path: inventory-patch.yaml
-  target:
-    kind: Deployment
-    name: inventory-service
+# patches:
+# - path: product-patch.yaml
+#   target:
+#     kind: Deployment
+#     name: product-service
+# - path: order-patch.yaml
+#   target:
+#     kind: Deployment
+#     name: order-service
+# - path: inventory-patch.yaml
+#   target:
+#     kind: Deployment
+#     name: inventory-service
 
 images:
 - name: order-service
