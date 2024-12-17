@@ -6,9 +6,11 @@ metadata:
 spec:
   imageRepositoryRef:
     name: product-service
+  filterTags:
+    pattern: ".*-alpha.*"
   policy:
     semver:
-      range: '>=v1.1.0-alpha.0 <v1.2.0'
+      range: ">=0-0"
 ---
 apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImagePolicy
@@ -18,9 +20,11 @@ metadata:
 spec:
   imageRepositoryRef:
     name: order-service
+  filterTags:
+    pattern: ".*-alpha.*"
   policy:
     semver:
-      range: '>=v1.1.0-alpha.0 <v1.2.0' 
+      range: ">=0-0"
 ---
 apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImagePolicy
@@ -30,6 +34,8 @@ metadata:
 spec:
   imageRepositoryRef:
     name: inventory-service
+  filterTags:
+    pattern: ".*-alpha.*"
   policy:
     semver:
-      range: '>=v1.1.0-alpha.0 <v1.2.0'
+      range: ">=0-0"
