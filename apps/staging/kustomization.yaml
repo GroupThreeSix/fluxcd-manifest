@@ -7,7 +7,7 @@ resources:
 images:
 - name: order-service
   newName: groupthreesix.azurecr.io/order-service # {"$imagepolicy": "flux-system:order-service-staging:name"}
-  newTag: v1.1.1-alpha.14 # {"$imagepolicy": "flux-system:order-service-staging:tag"}
+  newTag: v1.1.1-alpha.15 # {"$imagepolicy": "flux-system:order-service-staging:tag"}
 - name: product-service
   newName: groupthreesix.azurecr.io/product-service # {"$imagepolicy": "flux-system:product-service-staging:name"}
   newTag: v1.1.1-alpha.15 # {"$imagepolicy": "flux-system:product-service-staging:tag"}
