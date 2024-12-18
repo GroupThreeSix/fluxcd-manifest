@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: apps-letsencrypt-certs
+  namespace: aks-istio-ingress
+spec:
+  secretName: apps-certs # letsencrypt certificate secret name, should match the credentialName in the gateway resource
+  issuerRef:
+    name: letsencrypt
+    kind: ClusterIssuer
+  commonName: aks.tuilakhanh.id.vn
+  dnsNames:
+    - aks.tuilakhanh.id.vn # this should match a host name in the gateway resource

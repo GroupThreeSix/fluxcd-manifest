@@ -1,0 +1,24 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: api-gateway
+  namespace: apps-production
+spec:
+  selector:
+    istio: aks-istio-ingressgateway-external
+  servers:
+    - port:
+        number: 80
+        name: http
+        protocol: HTTP
+      hosts:
+        - "aks.tuilakhanh.id.vn" # this should match your DNS name
+    - port:
+        number: 443
+        name: https-apps
+        protocol: HTTPS
+      tls:
+        mode: SIMPLE
+        credentialName: "apps-certs" # this should match the Certificate secretName
+      hosts:
+        - "aks.tuilakhanh.id.vn" # this should match a DNS name in the Certificate
