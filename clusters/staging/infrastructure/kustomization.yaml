@@ -18,10 +18,10 @@ patches:
   - patch: |-
       - op: replace
         path: /spec/commonName
-        value: staging.aks.tuilakhanh.id.vn
+        value: staging.apps.tuilakhanh.id.vn
       - op: replace
         path: /spec/dnsNames/0
-        value: staging.aks.tuilakhanh.id.vn
+        value: staging.apps.tuilakhanh.id.vn
     target:
       kind: Certificate
       name: apps-letsencrypt-certs
@@ -35,17 +35,31 @@ patches:
   - patch: |-
       - op: replace
         path: /spec/servers/0/hosts/0
-        value: staging.aks.tuilakhanh.id.vn
+        value: staging.apps.tuilakhanh.id.vn
       - op: replace
         path: /spec/servers/1/hosts/0
-        value: staging.aks.tuilakhanh.id.vn
+        value: staging.apps.tuilakhanh.id.vn
     target:
       kind: Gateway
       name: api-gateway
   - patch: |-
       - op: replace
         path: /spec/hosts/0
-        value: staging.aks.tuilakhanh.id.vn
+        value: staging.apps.tuilakhanh.id.vn
     target:
       kind: VirtualService
       name: apps-vs
+  - patch: |-
+      - op: replace
+        path: /metadata/name
+        value: apps-letsencrypt-certs-staging
+    target:
+      kind: Certificate
+      name: apps-letsencrypt-certs
+  - patch: |-
+      - op: replace
+        path: /metadata/name
+        value: letsencrypt-staging
+    target:
+      kind: ClusterIssuer
+      name: letsencrypt

@@ -5,7 +5,7 @@ metadata:
   namespace: apps-production
 spec:
   hosts:
-  - aks.tuilakhanh.id.vn # this should match your DNS name
+  - apps.tuilakhanh.id.vn # this should match your DNS name
   gateways:
   - api-gateway
   http:

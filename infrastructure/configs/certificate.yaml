@@ -8,6 +8,6 @@ spec:
   issuerRef:
     name: letsencrypt
     kind: ClusterIssuer
-  commonName: aks.tuilakhanh.id.vn
+  commonName: apps.tuilakhanh.id.vn
   dnsNames:
-    - aks.tuilakhanh.id.vn # this should match a host name in the gateway resource
+    - apps.tuilakhanh.id.vn # this should match a host name in the gateway resource

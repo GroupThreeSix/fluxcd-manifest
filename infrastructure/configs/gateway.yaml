@@ -12,7 +12,7 @@ spec:
         name: http
         protocol: HTTP
       hosts:
-        - "aks.tuilakhanh.id.vn" # this should match your DNS name
+        - "apps.tuilakhanh.id.vn" # this should match your DNS name
     - port:
         number: 443
         name: https-apps
@@ -21,4 +21,4 @@ spec:
         mode: SIMPLE
         credentialName: "apps-certs" # this should match the Certificate secretName
       hosts:
-        - "aks.tuilakhanh.id.vn" # this should match a DNS name in the Certificate
+        - "apps.tuilakhanh.id.vn" # this should match a DNS name in the Certificate
