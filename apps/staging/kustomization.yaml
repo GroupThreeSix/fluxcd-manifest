@@ -13,4 +13,4 @@ images:
   newTag: v1.1.1-alpha.24 # {"$imagepolicy": "flux-system:product-service-staging:tag"}
 - name: inventory-service
   newName: groupthreesix.azurecr.io/inventory-service # {"$imagepolicy": "flux-system:inventory-service-staging:name"}
-  newTag: v1.1.1-alpha.23 # {"$imagepolicy": "flux-system:inventory-service-staging:tag"}
+  newTag: v1.1.1-alpha.24 # {"$imagepolicy": "flux-system:inventory-service-staging:tag"}
