@@ -5,3 +5,4 @@ resources:
   # - cluster-issuers.yaml
   - gateway.yaml
   - virtalservice.yaml
+  - configmap.yaml
