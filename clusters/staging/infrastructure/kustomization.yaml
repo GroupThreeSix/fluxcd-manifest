@@ -3,19 +3,17 @@ kind: Kustomization
 resources:
   - ../../../infrastructure/configs/
 patches:
+  # Update Certificate name and DNS settings
   - patch: |-
       - op: replace
-        path: /metadata/namespace
-        value: apps
-    target:
-      kind: Gateway
-  - patch: |-
+        path: /metadata/name
+        value: apps-letsencrypt-certs-staging
       - op: replace
-        path: /metadata/namespace
-        value: apps
-    target:
-      kind: VirtualService
-  - patch: |-
+        path: /spec/secretName
+        value: apps-certs-staging
+      - op: replace
+        path: /spec/issuerRef/name
+        value: letsencrypt-staging
       - op: replace
         path: /spec/commonName
         value: staging.apps.tuilakhanh.id.vn
@@ -25,13 +23,23 @@ patches:
     target:
       kind: Certificate
       name: apps-letsencrypt-certs
+
+  # Update ClusterIssuer name and server
   - patch: |-
+      - op: replace
+        path: /metadata/name
+        value: letsencrypt-staging
       - op: replace
         path: /spec/acme/server
         value: https://acme-staging-v02.api.letsencrypt.org/directory
+      - op: replace
+        path: /spec/acme/privateKeySecretRef/name
+        value: letsencrypt-staging
     target:
       kind: ClusterIssuer
       name: letsencrypt
+
+  # Update Gateway hosts and credential name
   - patch: |-
       - op: replace
         path: /spec/servers/0/hosts/0
@@ -39,9 +47,14 @@ patches:
       - op: replace
         path: /spec/servers/1/hosts/0
         value: staging.apps.tuilakhanh.id.vn
+      - op: replace
+        path: /spec/servers/1/tls/credentialName
+        value: apps-certs-staging
     target:
       kind: Gateway
       name: api-gateway
+
+  # Update VirtualService name and host
   - patch: |-
       - op: replace
         path: /spec/hosts/0
@@ -49,17 +62,17 @@ patches:
     target:
       kind: VirtualService
       name: apps-vs
+
+  # Update Gateway namespace
   - patch: |-
       - op: replace
-        path: /metadata/name
-        value: apps-letsencrypt-certs-staging
+        path: /metadata/namespace
+        value: apps
     target:
-      kind: Certificate
-      name: apps-letsencrypt-certs
+      kind: Gateway
   - patch: |-
       - op: replace
-        path: /metadata/name
-        value: letsencrypt-staging
+        path: /metadata/namespace
+        value: apps
     target:
-      kind: ClusterIssuer
-      name: letsencrypt
+      kind: VirtualService
