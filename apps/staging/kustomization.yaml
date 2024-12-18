@@ -10,7 +10,7 @@ images:
   newTag: v1.1.1-alpha.14 # {"$imagepolicy": "flux-system:order-service-staging:tag"}
 - name: product-service
   newName: groupthreesix.azurecr.io/product-service # {"$imagepolicy": "flux-system:product-service-staging:name"}
-  newTag: v1.1.0-alpha.12 # {"$imagepolicy": "flux-system:product-service-staging:tag"}
+  newTag: v1.1.1-alpha.14 # {"$imagepolicy": "flux-system:product-service-staging:tag"}
 - name: inventory-service
   newName: groupthreesix.azurecr.io/inventory-service # {"$imagepolicy": "flux-system:inventory-service-staging:name"}
   newTag: v1.1.1-alpha.14 # {"$imagepolicy": "flux-system:inventory-service-staging:tag"}
